@@ -17,7 +17,7 @@ public record Enclosure(
         if (type == null || type.trim().isEmpty()) {
             throw new IllegalArgumentException("Enclosure type cannot be null or empty");
         }
-        if (area != null && area <= 0) {
+        if (area != null && area <= 0) { // area can be null
             throw new IllegalArgumentException("Enclosure area must be positive");
         }
     }
