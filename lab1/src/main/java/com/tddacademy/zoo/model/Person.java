@@ -24,7 +24,7 @@ public record Person(
         if (email == null || email.trim().isEmpty()) {
             throw new IllegalArgumentException("Person email cannot be null or empty");
         }
-        if (salary != null && salary <= 0) {
+        if (salary != null && salary <= 0) { // salary can be null
             throw new IllegalArgumentException("Person salary must be positive");
         }
     }

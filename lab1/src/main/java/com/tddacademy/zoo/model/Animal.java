@@ -18,7 +18,7 @@ public record Animal(
         if (species == null || species.trim().isEmpty()) {
             throw new IllegalArgumentException("Animal species cannot be null or empty");
         }
-        if (weight != null && weight <= 0) {
+        if (weight != null && weight <= 0) { // weight can be null
             throw new IllegalArgumentException("Animal weight must be positive");
         }
     }
