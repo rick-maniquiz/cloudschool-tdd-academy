@@ -93,7 +93,7 @@ class ZooControllerTest {
         when(zooService.getZooById(1L)).thenReturn(createdZoo);
         mockMvc.perform(get("/api/zoos/1"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON)) // the json response
                 .andExpect(jsonPath("$.id").value(1))
                 .andExpect(jsonPath("$.name").value("Manila Zoo"))
                 .andExpect(jsonPath("$.location").value("Manila, Philippines"))
@@ -120,7 +120,7 @@ class ZooControllerTest {
         // When & Then
         mockMvc.perform(post("/api/zoos")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(testZoo)))
+                        .content(objectMapper.writeValueAsString(testZoo))) // the response body derived from testZoo
                 .andExpect(status().isCreated())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.id").value(1))
